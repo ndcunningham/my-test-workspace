@@ -36,8 +36,8 @@ jobs:
       - run: |
           echo "Node version:" $(node --version)
           echo "npm version: " $(npm --version)
-          name: Show Node/npm versions
-          
+        name: Show Node/npm versions
+
       - run: npm ci --legacy-peer-deps
       - run: npx playwright install --with-deps
       - uses: nrwl/nx-set-shas@v4
