@@ -19,7 +19,8 @@ jobs:
           filter: tree:0
           fetch-depth: 0
       
-
+      - run: corepack enable
+      - run: corepack prepare npm@8 --activate
       # This enables task distribution via Nx Cloud
       # Run this command as early as possible, before dependencies are installed
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
@@ -32,11 +33,6 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-
-      - run: |
-          echo "Node version:" $(node --version)
-          echo "npm version: " $(npm --version)
-        name: Show Node/npm versions
 
       - run: npm ci --legacy-peer-deps
       - run: npx playwright install --with-deps
