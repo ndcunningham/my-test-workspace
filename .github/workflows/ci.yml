@@ -19,10 +19,10 @@ jobs:
           filter: tree:0
           fetch-depth: 0
       
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      #     cache: 'npm'
       - run: corepack enable
       - run: corepack prepare npm@8 --activate
       # This enables task distribution via Nx Cloud
